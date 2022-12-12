@@ -50,15 +50,12 @@ class AuthController extends Controller
             ], 403);
         }
 
-        $credential = $request->only('email', 'password');
-        $token = auth()->guard('api')->attempt($credential);
-
         return response([
             'user' => auth()->guard('api')->user(),
             'code' => 200,
             'status' => true,
             'message' => 'Login Berhasil',
-            'token' => $token
+            'token' => $request->bearerToken()
         ], 200);
     }
 
