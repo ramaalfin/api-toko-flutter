@@ -16,6 +16,7 @@ class Produk extends Model
         'userId',
     ];
 
+    // test
     public function user()
     {
         return $this->belongsTo(User::class);
